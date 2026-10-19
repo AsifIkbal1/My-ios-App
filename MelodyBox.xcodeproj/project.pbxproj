@@ -1,0 +1,556 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B00000000000000000000066 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000065 /* AppDelegate.swift */; };
+		B00000000000000000000068 /* MelodyBoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000067 /* MelodyBoxApp.swift */; };
+		B0000000000000000000006A /* DownloadItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000069 /* DownloadItem.swift */; };
+		B0000000000000000000006C /* LicenseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000006B /* LicenseInfo.swift */; };
+		B0000000000000000000006E /* PlaybackHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000006D /* PlaybackHistory.swift */; };
+		B00000000000000000000070 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000006F /* Playlist.swift */; };
+		B00000000000000000000072 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000071 /* Track.swift */; };
+		B00000000000000000000074 /* AudioPlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000073 /* AudioPlayerService.swift */; };
+		B00000000000000000000076 /* BackgroundDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000075 /* BackgroundDownloadManager.swift */; };
+		B00000000000000000000078 /* FileImportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000077 /* FileImportService.swift */; };
+		B0000000000000000000007A /* NowPlayingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000079 /* NowPlayingManager.swift */; };
+		B0000000000000000000007C /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000007B /* StorageManager.swift */; };
+		B0000000000000000000007E /* DemoCatalogProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000007D /* DemoCatalogProvider.swift */; };
+		B00000000000000000000080 /* FreeMusicArchiveCatalogProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000007F /* FreeMusicArchiveCatalogProvider.swift */; };
+		B00000000000000000000082 /* JamendoCatalogProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000081 /* JamendoCatalogProvider.swift */; };
+		B00000000000000000000084 /* MusicCatalogProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000083 /* MusicCatalogProvider.swift */; };
+		B00000000000000000000086 /* DownloaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000085 /* DownloaderViewModel.swift */; };
+		B00000000000000000000088 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000087 /* HomeViewModel.swift */; };
+		B0000000000000000000008A /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000089 /* LibraryViewModel.swift */; };
+		B0000000000000000000008C /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000008B /* PlayerViewModel.swift */; };
+		B0000000000000000000008E /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000008D /* SearchViewModel.swift */; };
+		B00000000000000000000090 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000008F /* SettingsViewModel.swift */; };
+		B00000000000000000000092 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000091 /* MainTabView.swift */; };
+		B00000000000000000000094 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000093 /* CustomSlider.swift */; };
+		B00000000000000000000096 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000095 /* EmptyStateView.swift */; };
+		B00000000000000000000098 /* GlassCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000097 /* GlassCard.swift */; };
+		B0000000000000000000009A /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000099 /* GradientButton.swift */; };
+		B0000000000000000000009C /* LicenseBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000009B /* LicenseBadgeView.swift */; };
+		B0000000000000000000009E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000009D /* Theme.swift */; };
+		B000000000000000000000A0 /* WaveformVisualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000009F /* WaveformVisualizerView.swift */; };
+		B000000000000000000000A2 /* DirectURLImportSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000000000000000000000A1 /* DirectURLImportSheet.swift */; };
+		B000000000000000000000A4 /* DownloaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000000000000000000000A3 /* DownloaderView.swift */; };
+		B000000000000000000000A6 /* DownloadRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000000000000000000000A5 /* DownloadRowView.swift */; };
+		B000000000000000000000A8 /* FeaturedHeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000000000000000000000A7 /* FeaturedHeroView.swift */; };
+		B000000000000000000000AA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000000000000000000000A9 /* HomeView.swift */; };
+		B000000000000000000000AC /* TrackCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000000000000000000000AB /* TrackCardView.swift */; };
+		B000000000000000000000AE /* CreatePlaylistSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000000000000000000000AD /* CreatePlaylistSheet.swift */; };
+		B000000000000000000000B0 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000000000000000000000AF /* LibraryView.swift */; };
+		B000000000000000000000B2 /* PlaylistDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000000000000000000000B1 /* PlaylistDetailView.swift */; };
+		B000000000000000000000B4 /* PlaylistsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000000000000000000000B3 /* PlaylistsView.swift */; };
+		B000000000000000000000B6 /* TrackRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000000000000000000000B5 /* TrackRowView.swift */; };
+		B000000000000000000000B8 /* MiniPlayerBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000000000000000000000B7 /* MiniPlayerBar.swift */; };
+		B000000000000000000000BA /* NowPlayingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000000000000000000000B9 /* NowPlayingView.swift */; };
+		B000000000000000000000BC /* UpNextQueueSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000000000000000000000BB /* UpNextQueueSheet.swift */; };
+		B000000000000000000000BE /* CatalogTrackRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000000000000000000000BD /* CatalogTrackRowView.swift */; };
+		B000000000000000000000C0 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000000000000000000000BF /* SearchView.swift */; };
+		B000000000000000000000C2 /* LegalLicensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000000000000000000000C1 /* LegalLicensesView.swift */; };
+		B000000000000000000000C4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000000000000000000000C3 /* SettingsView.swift */; };
+		B000000000000000000000C6 /* StorageCleanupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000000000000000000000C5 /* StorageCleanupView.swift */; };
+		B000000000000000000000C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = R000000000000000000000C7 /* Assets.xcassets */; };
+		B000000000000000000000CA /* midnight_neon.wav in Resources */ = {isa = PBXBuildFile; fileRef = R000000000000000000000C9 /* midnight_neon.wav */; };
+		B000000000000000000000CC /* starlight_reverie.wav in Resources */ = {isa = PBXBuildFile; fileRef = R000000000000000000000CB /* starlight_reverie.wav */; };
+		B000000000000000000000CE /* velvet_horizons.wav in Resources */ = {isa = PBXBuildFile; fileRef = R000000000000000000000CD /* velvet_horizons.wav */; };
+		B000000000000000000000D2 /* AudioPlayerServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = T000000000000000000000D1 /* AudioPlayerServiceTests.swift */; };
+		B000000000000000000000D4 /* CatalogProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = T000000000000000000000D3 /* CatalogProviderTests.swift */; };
+		B000000000000000000000D6 /* DownloadManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = T000000000000000000000D5 /* DownloadManagerTests.swift */; };
+		B000000000000000000000D8 /* SwiftDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = T000000000000000000000D7 /* SwiftDataModelTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C000000000000000000000DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 000000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 100000000000000000000001;
+			remoteInfo = MelodyBox;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F00000000000000000000065 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App/AppDelegate.swift"; sourceTree = "<group>"; };
+		F00000000000000000000067 /* MelodyBoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App/MelodyBoxApp.swift"; sourceTree = "<group>"; };
+		F00000000000000000000069 /* DownloadItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/DownloadItem.swift"; sourceTree = "<group>"; };
+		F0000000000000000000006B /* LicenseInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/LicenseInfo.swift"; sourceTree = "<group>"; };
+		F0000000000000000000006D /* PlaybackHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/PlaybackHistory.swift"; sourceTree = "<group>"; };
+		F0000000000000000000006F /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/Playlist.swift"; sourceTree = "<group>"; };
+		F00000000000000000000071 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/Track.swift"; sourceTree = "<group>"; };
+		F00000000000000000000073 /* AudioPlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/AudioPlayerService.swift"; sourceTree = "<group>"; };
+		F00000000000000000000075 /* BackgroundDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/BackgroundDownloadManager.swift"; sourceTree = "<group>"; };
+		F00000000000000000000077 /* FileImportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/FileImportService.swift"; sourceTree = "<group>"; };
+		F00000000000000000000079 /* NowPlayingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/NowPlayingManager.swift"; sourceTree = "<group>"; };
+		F0000000000000000000007B /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/StorageManager.swift"; sourceTree = "<group>"; };
+		F0000000000000000000007D /* DemoCatalogProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/Catalog/DemoCatalogProvider.swift"; sourceTree = "<group>"; };
+		F0000000000000000000007F /* FreeMusicArchiveCatalogProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/Catalog/FreeMusicArchiveCatalogProvider.swift"; sourceTree = "<group>"; };
+		F00000000000000000000081 /* JamendoCatalogProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/Catalog/JamendoCatalogProvider.swift"; sourceTree = "<group>"; };
+		F00000000000000000000083 /* MusicCatalogProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/Catalog/MusicCatalogProvider.swift"; sourceTree = "<group>"; };
+		F00000000000000000000085 /* DownloaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModels/DownloaderViewModel.swift"; sourceTree = "<group>"; };
+		F00000000000000000000087 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModels/HomeViewModel.swift"; sourceTree = "<group>"; };
+		F00000000000000000000089 /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModels/LibraryViewModel.swift"; sourceTree = "<group>"; };
+		F0000000000000000000008B /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModels/PlayerViewModel.swift"; sourceTree = "<group>"; };
+		F0000000000000000000008D /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModels/SearchViewModel.swift"; sourceTree = "<group>"; };
+		F0000000000000000000008F /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModels/SettingsViewModel.swift"; sourceTree = "<group>"; };
+		F00000000000000000000091 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/MainTabView.swift"; sourceTree = "<group>"; };
+		F00000000000000000000093 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Components/CustomSlider.swift"; sourceTree = "<group>"; };
+		F00000000000000000000095 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Components/EmptyStateView.swift"; sourceTree = "<group>"; };
+		F00000000000000000000097 /* GlassCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Components/GlassCard.swift"; sourceTree = "<group>"; };
+		F00000000000000000000099 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Components/GradientButton.swift"; sourceTree = "<group>"; };
+		F0000000000000000000009B /* LicenseBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Components/LicenseBadgeView.swift"; sourceTree = "<group>"; };
+		F0000000000000000000009D /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Components/Theme.swift"; sourceTree = "<group>"; };
+		F0000000000000000000009F /* WaveformVisualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Components/WaveformVisualizerView.swift"; sourceTree = "<group>"; };
+		F000000000000000000000A1 /* DirectURLImportSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Downloader/DirectURLImportSheet.swift"; sourceTree = "<group>"; };
+		F000000000000000000000A3 /* DownloaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Downloader/DownloaderView.swift"; sourceTree = "<group>"; };
+		F000000000000000000000A5 /* DownloadRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Downloader/DownloadRowView.swift"; sourceTree = "<group>"; };
+		F000000000000000000000A7 /* FeaturedHeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Home/FeaturedHeroView.swift"; sourceTree = "<group>"; };
+		F000000000000000000000A9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Home/HomeView.swift"; sourceTree = "<group>"; };
+		F000000000000000000000AB /* TrackCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Home/TrackCardView.swift"; sourceTree = "<group>"; };
+		F000000000000000000000AD /* CreatePlaylistSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Library/CreatePlaylistSheet.swift"; sourceTree = "<group>"; };
+		F000000000000000000000AF /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Library/LibraryView.swift"; sourceTree = "<group>"; };
+		F000000000000000000000B1 /* PlaylistDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Library/PlaylistDetailView.swift"; sourceTree = "<group>"; };
+		F000000000000000000000B3 /* PlaylistsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Library/PlaylistsView.swift"; sourceTree = "<group>"; };
+		F000000000000000000000B5 /* TrackRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Library/TrackRowView.swift"; sourceTree = "<group>"; };
+		F000000000000000000000B7 /* MiniPlayerBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Player/MiniPlayerBar.swift"; sourceTree = "<group>"; };
+		F000000000000000000000B9 /* NowPlayingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Player/NowPlayingView.swift"; sourceTree = "<group>"; };
+		F000000000000000000000BB /* UpNextQueueSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Player/UpNextQueueSheet.swift"; sourceTree = "<group>"; };
+		F000000000000000000000BD /* CatalogTrackRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Search/CatalogTrackRowView.swift"; sourceTree = "<group>"; };
+		F000000000000000000000BF /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Search/SearchView.swift"; sourceTree = "<group>"; };
+		F000000000000000000000C1 /* LegalLicensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Settings/LegalLicensesView.swift"; sourceTree = "<group>"; };
+		F000000000000000000000C3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Settings/SettingsView.swift"; sourceTree = "<group>"; };
+		F000000000000000000000C5 /* StorageCleanupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Settings/StorageCleanupView.swift"; sourceTree = "<group>"; };
+		R000000000000000000000C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Resources/Assets.xcassets"; sourceTree = "<group>"; };
+		R000000000000000000000C9 /* midnight_neon.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Resources/DemoMedia/midnight_neon.wav"; sourceTree = "<group>"; };
+		R000000000000000000000CB /* starlight_reverie.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Resources/DemoMedia/starlight_reverie.wav"; sourceTree = "<group>"; };
+		R000000000000000000000CD /* velvet_horizons.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Resources/DemoMedia/velvet_horizons.wav"; sourceTree = "<group>"; };
+		E000000000000000000000CF /* MelodyBox.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MelodyBox.entitlements"; sourceTree = "<group>"; };
+		P000000000000000000000D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Resources/Info.plist"; sourceTree = "<group>"; };
+		T000000000000000000000D1 /* AudioPlayerServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AudioPlayerServiceTests.swift"; sourceTree = "<group>"; };
+		T000000000000000000000D3 /* CatalogProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CatalogProviderTests.swift"; sourceTree = "<group>"; };
+		T000000000000000000000D5 /* DownloadManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DownloadManagerTests.swift"; sourceTree = "<group>"; };
+		T000000000000000000000D7 /* SwiftDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftDataModelTests.swift"; sourceTree = "<group>"; };
+		P000000000000000000000D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info.plist"; sourceTree = "<group>"; };
+		200000000000000000000001 /* MelodyBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MelodyBox.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		200000000000000000000002 /* MelodyBoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MelodyBoxTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		600000000000000000000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		700000000000000000000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		000000000000000000000002 = {
+			isa = PBXGroup;
+			children = (
+				G000000000000000000000DA /* MelodyBox */,
+				G000000000000000000000DB /* MelodyBoxTests */,
+				G000000000000000000000DC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		G000000000000000000000DC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000001 /* MelodyBox.app */,
+				200000000000000000000002 /* MelodyBoxTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		G000000000000000000000DA /* MelodyBox */ = {
+			isa = PBXGroup;
+			children = (
+				E000000000000000000000CF /* MelodyBox.entitlements */,
+				P000000000000000000000D0 /* Info.plist */,
+			);
+			name = MelodyBox;
+			path = MelodyBox;
+			sourceTree = "<group>";
+		};
+		G000000000000000000000DB /* MelodyBoxTests */ = {
+			isa = PBXGroup;
+			children = (
+				P000000000000000000000D9 /* Info.plist */,
+			);
+			name = MelodyBoxTests;
+			path = MelodyBoxTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		100000000000000000000001 /* MelodyBox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 400000000000000000000001 /* Build configuration list for PBXNativeTarget "MelodyBox" */;
+			buildPhases = (
+				600000000000000000000001 /* Sources */,
+				600000000000000000000002 /* Frameworks */,
+				600000000000000000000003 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MelodyBox;
+			productName = MelodyBox;
+			productReference = 200000000000000000000001 /* MelodyBox.app */;
+			productType = "com.apple.product-type.application";
+		};
+		100000000000000000000002 /* MelodyBoxTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 500000000000000000000001 /* Build configuration list for PBXNativeTarget "MelodyBoxTests" */;
+			buildPhases = (
+				700000000000000000000001 /* Sources */,
+				700000000000000000000002 /* Frameworks */,
+				700000000000000000000003 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D000000000000000000000DD /* PBXTargetDependency */,
+			);
+			name = MelodyBoxTests;
+			productName = MelodyBoxTests;
+			productReference = 200000000000000000000002 /* MelodyBoxTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		000000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					100000000000000000000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					100000000000000000000002 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 100000000000000000000001;
+					};
+				};
+			};
+			buildConfigurationList = 300000000000000000000001 /* Build configuration list for PBXProject "MelodyBox" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 000000000000000000000002;
+			productRefGroup = G000000000000000000000DC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				100000000000000000000001 /* MelodyBox */,
+				100000000000000000000002 /* MelodyBoxTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		600000000000000000000003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B000000000000000000000C8 /* Assets.xcassets in Resources */,
+				B000000000000000000000CA /* midnight_neon.wav in Resources */,
+				B000000000000000000000CC /* starlight_reverie.wav in Resources */,
+				B000000000000000000000CE /* velvet_horizons.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		700000000000000000000003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		600000000000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B00000000000000000000066 /* AppDelegate.swift in Sources */,
+				B00000000000000000000068 /* MelodyBoxApp.swift in Sources */,
+				B0000000000000000000006A /* DownloadItem.swift in Sources */,
+				B0000000000000000000006C /* LicenseInfo.swift in Sources */,
+				B0000000000000000000006E /* PlaybackHistory.swift in Sources */,
+				B00000000000000000000070 /* Playlist.swift in Sources */,
+				B00000000000000000000072 /* Track.swift in Sources */,
+				B00000000000000000000074 /* AudioPlayerService.swift in Sources */,
+				B00000000000000000000076 /* BackgroundDownloadManager.swift in Sources */,
+				B00000000000000000000078 /* FileImportService.swift in Sources */,
+				B0000000000000000000007A /* NowPlayingManager.swift in Sources */,
+				B0000000000000000000007C /* StorageManager.swift in Sources */,
+				B0000000000000000000007E /* DemoCatalogProvider.swift in Sources */,
+				B00000000000000000000080 /* FreeMusicArchiveCatalogProvider.swift in Sources */,
+				B00000000000000000000082 /* JamendoCatalogProvider.swift in Sources */,
+				B00000000000000000000084 /* MusicCatalogProvider.swift in Sources */,
+				B00000000000000000000086 /* DownloaderViewModel.swift in Sources */,
+				B00000000000000000000088 /* HomeViewModel.swift in Sources */,
+				B0000000000000000000008A /* LibraryViewModel.swift in Sources */,
+				B0000000000000000000008C /* PlayerViewModel.swift in Sources */,
+				B0000000000000000000008E /* SearchViewModel.swift in Sources */,
+				B00000000000000000000090 /* SettingsViewModel.swift in Sources */,
+				B00000000000000000000092 /* MainTabView.swift in Sources */,
+				B00000000000000000000094 /* CustomSlider.swift in Sources */,
+				B00000000000000000000096 /* EmptyStateView.swift in Sources */,
+				B00000000000000000000098 /* GlassCard.swift in Sources */,
+				B0000000000000000000009A /* GradientButton.swift in Sources */,
+				B0000000000000000000009C /* LicenseBadgeView.swift in Sources */,
+				B0000000000000000000009E /* Theme.swift in Sources */,
+				B000000000000000000000A0 /* WaveformVisualizerView.swift in Sources */,
+				B000000000000000000000A2 /* DirectURLImportSheet.swift in Sources */,
+				B000000000000000000000A4 /* DownloaderView.swift in Sources */,
+				B000000000000000000000A6 /* DownloadRowView.swift in Sources */,
+				B000000000000000000000A8 /* FeaturedHeroView.swift in Sources */,
+				B000000000000000000000AA /* HomeView.swift in Sources */,
+				B000000000000000000000AC /* TrackCardView.swift in Sources */,
+				B000000000000000000000AE /* CreatePlaylistSheet.swift in Sources */,
+				B000000000000000000000B0 /* LibraryView.swift in Sources */,
+				B000000000000000000000B2 /* PlaylistDetailView.swift in Sources */,
+				B000000000000000000000B4 /* PlaylistsView.swift in Sources */,
+				B000000000000000000000B6 /* TrackRowView.swift in Sources */,
+				B000000000000000000000B8 /* MiniPlayerBar.swift in Sources */,
+				B000000000000000000000BA /* NowPlayingView.swift in Sources */,
+				B000000000000000000000BC /* UpNextQueueSheet.swift in Sources */,
+				B000000000000000000000BE /* CatalogTrackRowView.swift in Sources */,
+				B000000000000000000000C0 /* SearchView.swift in Sources */,
+				B000000000000000000000C2 /* LegalLicensesView.swift in Sources */,
+				B000000000000000000000C4 /* SettingsView.swift in Sources */,
+				B000000000000000000000C6 /* StorageCleanupView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		700000000000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B000000000000000000000D2 /* AudioPlayerServiceTests.swift in Sources */,
+				B000000000000000000000D4 /* CatalogProviderTests.swift in Sources */,
+				B000000000000000000000D6 /* DownloadManagerTests.swift in Sources */,
+				B000000000000000000000D8 /* SwiftDataModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D000000000000000000000DD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 100000000000000000000001 /* MelodyBox */;
+			targetProxy = C000000000000000000000DE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		300000000000000000000002 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		300000000000000000000003 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		400000000000000000000002 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MelodyBox/MelodyBox.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MelodyBox/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.melodybox.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		400000000000000000000003 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MelodyBox/MelodyBox.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MelodyBox/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.melodybox.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		500000000000000000000002 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MelodyBoxTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.melodybox.MelodyBoxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MelodyBox.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MelodyBox";
+			};
+			name = Debug;
+		};
+		500000000000000000000003 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MelodyBoxTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.melodybox.MelodyBoxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MelodyBox.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MelodyBox";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		300000000000000000000001 /* Build configuration list for PBXProject "MelodyBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				300000000000000000000002 /* Debug */,
+				300000000000000000000003 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		400000000000000000000001 /* Build configuration list for PBXNativeTarget "MelodyBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				400000000000000000000002 /* Debug */,
+				400000000000000000000003 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		500000000000000000000001 /* Build configuration list for PBXNativeTarget "MelodyBoxTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				500000000000000000000002 /* Debug */,
+				500000000000000000000003 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = 000000000000000000000001 /* Project object */;
+}

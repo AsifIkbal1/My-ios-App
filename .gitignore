@@ -1,0 +1,26 @@
+# Xcode
+## User settings
+xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+*.moved-aside
+DerivedData/
+*.xcuserstate
+
+## Build generated
+build/
+*.build/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+## Various cache files
+*.mode1v3
+*.mode2v3
+*.moved-aside
+*.pbxuser
+*.perspectivev3
+
+## macOS
+.DS_Store
