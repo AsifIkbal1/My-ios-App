@@ -371,6 +371,12 @@ public final class BackgroundDownloadManager: NSObject, URLSessionDownloadDelega
                 }
             }
             
+            let safeTitle = extractedTitle
+            let safeArtist = extractedArtist
+            let safeAlbum = extractedAlbum
+            let safeArtwork = artworkData
+            let safeDuration = duration
+            
             await MainActor.run {
                 let context = ModelContext(container)
                 let descriptor = FetchDescriptor<DownloadItem>(predicate: #Predicate { $0.id == downloadId })
@@ -383,20 +389,20 @@ public final class BackgroundDownloadManager: NSObject, URLSessionDownloadDelega
                 item.resumeData = nil
                 
                 // Create or update Track
-                let finalTitle = extractedTitle ?? (item.title.isEmpty ? "Unknown Title" : item.title)
-                let finalArtist = extractedArtist ?? (item.artist.isEmpty ? "Unknown Artist" : item.artist)
-                let finalAlbum = extractedAlbum ?? (item.album.isEmpty ? "Lawful Audio" : item.album)
+                let finalTitle = safeTitle ?? (item.title.isEmpty ? "Unknown Title" : item.title)
+                let finalArtist = safeArtist ?? (item.artist.isEmpty ? "Unknown Artist" : item.artist)
+                let finalAlbum = safeAlbum ?? (item.album.isEmpty ? "Lawful Audio" : item.album)
                 
                 let track = Track(
                     id: UUID().uuidString,
                     title: finalTitle,
                     artist: finalArtist,
                     album: finalAlbum,
-                    duration: duration > 0 ? duration : 0,
+                    duration: safeDuration > 0 ? safeDuration : 0,
                     relativeFilePath: relativePath,
                     remoteStreamURLString: item.originalURLString,
                     remoteArtworkURLString: item.artworkURLString,
-                    artworkData: artworkData,
+                    artworkData: safeArtwork,
                     source: .directUrl,
                     licenseType: item.licenseType,
                     licenseName: item.licenseName,
