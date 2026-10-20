@@ -41,13 +41,26 @@ public struct TrackCardView: View {
                             Image(uiImage: uiImage)
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
-                        } else {
-                            ZStack {
-                                Theme.cardGradient
-                                Image(systemName: "music.note")
-                                    .font(.system(size: 32))
-                                    .foregroundColor(Theme.purple.opacity(0.8))
+                        } else if let artworkURL = artworkURL {
+                            AsyncImage(url: artworkURL) { phase in
+                                switch phase {
+                                case .success(let image):
+                                    image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                case .failure:
+                                    artworkPlaceholder
+                                case .empty:
+                                    ZStack {
+                                        Theme.surfaceElevated
+                                        ProgressView().tint(Theme.purple)
+                                    }
+                                @unknown default:
+                                    artworkPlaceholder
+                                }
                             }
+                        } else {
+                            artworkPlaceholder
                         }
                     }
                     .frame(width: 140, height: 140)
@@ -106,5 +119,14 @@ public struct TrackCardView: View {
             }
         }
         .buttonStyle(ScaleButtonStyle())
+    }
+    
+    private var artworkPlaceholder: some View {
+        ZStack {
+            Theme.cardGradient
+            Image(systemName: "music.note")
+                .font(.system(size: 32))
+                .foregroundColor(Theme.purple.opacity(0.8))
+        }
     }
 }

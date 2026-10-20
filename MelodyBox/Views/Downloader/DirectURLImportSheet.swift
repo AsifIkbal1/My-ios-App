@@ -150,8 +150,9 @@ public struct DirectURLImportSheet: View {
                             title: downloaderVM.isValidatingURL ? "Validating URL..." : "Start Background Download",
                             icon: "arrow.down"
                         ) {
-                            downloaderVM.validateAndStartDirectDownload(context: modelContext)
-                            dismiss()
+                            downloaderVM.validateAndStartDirectDownload(context: modelContext) {
+                                dismiss()
+                            }
                         }
                         .disabled(downloaderVM.isValidatingURL || downloaderVM.inputURLString.trimmingCharacters(in: .whitespaces).isEmpty)
                         .opacity(downloaderVM.inputURLString.trimmingCharacters(in: .whitespaces).isEmpty ? 0.5 : 1.0)

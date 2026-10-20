@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import UniformTypeIdentifiers
 
 public struct HomeView: View {
     @Bindable var playerVM: PlayerViewModel = .shared

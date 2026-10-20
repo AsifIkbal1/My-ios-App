@@ -121,8 +121,16 @@ public final class Track {
         if let local = resolvedLocalFileURL {
             return local
         }
-        if let remoteStr = remoteStreamURLString, let remote = URL(string: remoteStr) {
-            return remote
+        if let remoteStr = remoteStreamURLString {
+            if remoteStr.hasPrefix("bundle://") {
+                let resourceName = String(remoteStr.dropFirst("bundle://".count))
+                let ext = (resourceName as NSString).pathExtension
+                let base = (resourceName as NSString).deletingPathExtension
+                return Bundle.main.url(forResource: base, withExtension: ext)
+            }
+            if let remote = URL(string: remoteStr) {
+                return remote
+            }
         }
         return nil
     }
@@ -133,5 +141,12 @@ public final class Track {
     
     public var formattedFileSize: String {
         ByteCountFormatter.string(fromByteCount: fileSize, countStyle: .file)
+    }
+    
+    public var genreOrFormat: String {
+        if isDownloaded {
+            return "OFFLINE AUDIO"
+        }
+        return licenseName.uppercased()
     }
 }

@@ -3,6 +3,7 @@ import AVFoundation
 import MediaPlayer
 import Observation
 import UIKit
+import SwiftUI
 
 public enum PlaybackState: Equatable {
     case idle
@@ -316,7 +317,7 @@ public final class AudioPlayerService: NSObject, NowPlayingCommandDelegate {
     
     public func seek(to time: TimeInterval) {
         guard let player = player else { return }
-        let clampedTime = max(0, min(time, duration))
+        let clampedTime = duration > 0 ? max(0, min(time, duration)) : max(0, time)
         self.currentTime = clampedTime
         let cmTime = CMTime(seconds: clampedTime, preferredTimescale: 600)
         player.seek(to: cmTime, toleranceBefore: .zero, toleranceAfter: .zero) { [weak self] _ in

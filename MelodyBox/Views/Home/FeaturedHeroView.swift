@@ -14,14 +14,34 @@ public struct FeaturedHeroView: View {
     public var body: some View {
         ZStack(alignment: .bottomLeading) {
             // Background Artwork / Gradient
-            RoundedRectangle(cornerRadius: 24, style: .continuous)
-                .fill(
-                    LinearGradient(
-                        colors: [Color(hex: "2E1065"), Color(hex: "170C2A")],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
+            ZStack {
+                RoundedRectangle(cornerRadius: 24, style: .continuous)
+                    .fill(
+                        LinearGradient(
+                            colors: [Color(hex: "2E1065"), Color(hex: "170C2A")],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
                     )
-                )
+                
+                if let artworkURL = track.artworkURL {
+                    AsyncImage(url: artworkURL) { phase in
+                        if let image = phase.image {
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .overlay(
+                                    LinearGradient(
+                                        colors: [Color.black.opacity(0.8), Color(hex: "170C2A").opacity(0.92)],
+                                        startPoint: .bottom,
+                                        endPoint: .top
+                                    )
+                                )
+                        }
+                    }
+                }
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
             
             // Subtle Radial Glow
             Circle()

@@ -71,22 +71,19 @@ public struct NowPlayingView: View {
                                 Image(uiImage: uiImage)
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
-                            } else {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 24)
-                                        .fill(Theme.cardGradient)
-                                    
-                                    VStack(spacing: 12) {
-                                        Image(systemName: "waveform.circle.fill")
-                                            .font(.system(size: 72))
-                                            .foregroundStyle(Theme.purpleGradient)
-                                        
-                                        Text(track.genreOrFormat)
-                                            .font(.system(size: 13, weight: .bold))
-                                            .foregroundColor(Theme.textSecondary)
-                                            .tracking(1.5)
+                            } else if let artworkURLStr = track.remoteArtworkURLString, let artworkURL = URL(string: artworkURLStr) {
+                                AsyncImage(url: artworkURL) { phase in
+                                    switch phase {
+                                    case .success(let image):
+                                        image
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                    default:
+                                        nowPlayingPlaceholder(for: track)
                                     }
                                 }
+                            } else {
+                                nowPlayingPlaceholder(for: track)
                             }
                         }
                         .frame(width: 280, height: 280)
@@ -308,14 +305,24 @@ public struct NowPlayingView: View {
             }
         }
     }
-}
-
-extension Track {
-    var genreOrFormat: String {
-        if isDownloaded {
-            return "OFFLINE AUDIO"
+    
+    @ViewBuilder
+    private func nowPlayingPlaceholder(for track: Track) -> some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 24)
+                .fill(Theme.cardGradient)
+            
+            VStack(spacing: 12) {
+                Image(systemName: "waveform.circle.fill")
+                    .font(.system(size: 72))
+                    .foregroundStyle(Theme.purpleGradient)
+                
+                Text(track.genreOrFormat)
+                    .font(.system(size: 13, weight: .bold))
+                    .foregroundColor(Theme.textSecondary)
+                    .tracking(1.5)
+            }
         }
-        return licenseName.uppercased()
     }
 }
 

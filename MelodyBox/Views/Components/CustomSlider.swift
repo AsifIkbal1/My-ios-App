@@ -48,7 +48,9 @@ public struct CustomSlider: View {
                             onEditingChanged?(true)
                         }
                         let rawRatio = gesture.location.x / width
-                        dragProgress = max(0.0, min(1.0, Double(rawRatio)))
+                        let clamped = max(0.0, min(1.0, Double(rawRatio)))
+                        dragProgress = clamped
+                        value = clamped
                     }
                     .onEnded { _ in
                         value = dragProgress

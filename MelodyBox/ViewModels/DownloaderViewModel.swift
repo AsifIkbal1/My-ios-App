@@ -14,7 +14,7 @@ public final class DownloaderViewModel {
     
     public init() {}
     
-    public func validateAndStartDirectDownload(context: ModelContext) {
+    public func validateAndStartDirectDownload(context: ModelContext, onSuccess: (() -> Void)? = nil) {
         let trimmedURL = inputURLString.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedURL.isEmpty else {
             validationErrorMessage = "Please enter an audio URL."
@@ -35,6 +35,7 @@ public final class DownloaderViewModel {
             var request = URLRequest(url: url)
             request.httpMethod = "HEAD"
             request.timeoutInterval = 10
+            request.setValue("MelodyBox-iOS/1.0", forHTTPHeaderField: "User-Agent")
             
             do {
                 let (_, response) = try await URLSession.shared.data(for: request)
@@ -53,6 +54,7 @@ public final class DownloaderViewModel {
                     self.isValidatingURL = false
                     self.isDirectURLSheetPresented = false
                     self.resetFields()
+                    onSuccess?()
                 }
             } catch {
                 // If HEAD fails, attempt direct enqueue anyway
@@ -61,6 +63,7 @@ public final class DownloaderViewModel {
                     self.isValidatingURL = false
                     self.isDirectURLSheetPresented = false
                     self.resetFields()
+                    onSuccess?()
                 }
             }
         }

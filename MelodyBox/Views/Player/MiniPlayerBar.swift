@@ -29,14 +29,18 @@ public struct MiniPlayerBar: View {
                             Image(uiImage: uiImage)
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
+                        } else if let artworkURLStr = track.remoteArtworkURLString, let artworkURL = URL(string: artworkURLStr) {
+                            AsyncImage(url: artworkURL) { phase in
+                                if let image = phase.image {
+                                    image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                } else {
+                                    miniPlayerPlaceholder
+                                }
+                            }
                         } else {
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(Theme.surfaceElevated)
-                                .overlay(
-                                    Image(systemName: "music.note")
-                                        .font(.system(size: 18))
-                                        .foregroundColor(Theme.purple)
-                                )
+                            miniPlayerPlaceholder
                         }
                     }
                     .frame(width: 44, height: 44)
@@ -113,5 +117,15 @@ public struct MiniPlayerBar: View {
                 NowPlayingView()
             }
         }
+    }
+    
+    private var miniPlayerPlaceholder: some View {
+        RoundedRectangle(cornerRadius: 8)
+            .fill(Theme.surfaceElevated)
+            .overlay(
+                Image(systemName: "music.note")
+                    .font(.system(size: 18))
+                    .foregroundColor(Theme.purple)
+            )
     }
 }

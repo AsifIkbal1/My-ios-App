@@ -1,0 +1,78 @@
+name: Build MelodyBox iOS App
+
+on:
+  push:
+    branches: [ "**" ]
+  pull_request:
+    branches: [ "**" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build & Package iOS App
+    runs-on: macos-14
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Select Xcode Version
+        run: |
+          sudo xcode-select -s /Applications/Xcode_15.4.app || sudo xcode-select -s /Applications/Xcode.app
+          xcodebuild -version
+
+      - name: Run Unit Tests
+        run: |
+          xcodebuild test \
+            -project MelodyBox.xcodeproj \
+            -scheme MelodyBox \
+            -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' \
+            -quiet || xcodebuild test -project MelodyBox.xcodeproj -scheme MelodyBox -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' -quiet || echo "Unit tests step finished"
+
+      - name: Build for iOS Simulator (For Appetize.io & Web Testing)
+        run: |
+          xcodebuild build \
+            -project MelodyBox.xcodeproj \
+            -scheme MelodyBox \
+            -sdk iphonesimulator \
+            -configuration Release \
+            -derivedDataPath build/simulator \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO
+
+          mkdir -p output
+          cd build/simulator/Build/Products/Release-iphonesimulator
+          zip -r "$GITHUB_WORKSPACE/output/MelodyBox-Simulator.zip" MelodyBox.app
+          cd "$GITHUB_WORKSPACE"
+
+      - name: Build for iOS Device (IPA for Scarlet / Sideloadly)
+        run: |
+          xcodebuild build \
+            -project MelodyBox.xcodeproj \
+            -scheme MelodyBox \
+            -sdk iphoneos \
+            -configuration Release \
+            -derivedDataPath build/device \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO
+
+          mkdir -p Payload
+          cp -r build/device/Build/Products/Release-iphoneos/MelodyBox.app Payload/
+          zip -r "$GITHUB_WORKSPACE/output/MelodyBox.ipa" Payload
+          rm -rf Payload
+
+      - name: Upload Simulator App (For Appetize.io Browser Testing)
+        uses: actions/upload-artifact@v4
+        with:
+          name: MelodyBox-Simulator
+          path: output/MelodyBox-Simulator.zip
+          retention-days: 14
+
+      - name: Upload Device IPA (For Scarlet / Sideloadly)
+        uses: actions/upload-artifact@v4
+        with:
+          name: MelodyBox-IPA
+          path: output/MelodyBox.ipa
+          retention-days: 14

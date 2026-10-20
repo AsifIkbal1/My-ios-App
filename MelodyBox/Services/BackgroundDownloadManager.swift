@@ -58,6 +58,11 @@ public final class BackgroundDownloadManager: NSObject, URLSessionDownloadDelega
     
     /// Starts or resumes a background download
     public func startDownload(item: DownloadItem) {
+        if item.originalURLString.hasPrefix("bundle://") {
+            handleBundledDownload(item: item)
+            return
+        }
+        
         guard let url = URL(string: item.originalURLString) else {
             updateItemStatus(id: item.id, status: .failed, error: "Invalid audio URL format.")
             return
@@ -282,6 +287,50 @@ public final class BackgroundDownloadManager: NSObject, URLSessionDownloadDelega
     
     // MARK: - SwiftData Persistence Helpers
     
+    private func handleBundledDownload(item: DownloadItem) {
+        let resourceName = String(item.originalURLString.dropFirst("bundle://".count))
+        let ext = (resourceName as NSString).pathExtension.isEmpty ? "wav" : (resourceName as NSString).pathExtension
+        let base = (resourceName as NSString).deletingPathExtension
+        
+        guard let bundleURL = Bundle.main.url(forResource: base, withExtension: ext) else {
+            updateItemStatus(id: item.id, status: .failed, error: "Bundled audio resource not found in app bundle.")
+            return
+        }
+        
+        let filename = "\(item.id).\(ext)"
+        let destinationDir = StorageManager.shared.tracksDirectoryURL
+        let destinationURL = destinationDir.appendingPathComponent(filename)
+        let relativePath = "Tracks/\(filename)"
+        
+        do {
+            if FileManager.default.fileExists(atPath: destinationURL.path) {
+                try FileManager.default.removeItem(at: destinationURL)
+            }
+            try FileManager.default.copyItem(at: bundleURL, to: destinationURL)
+            let attrs = try FileManager.default.attributesOfItem(atPath: destinationURL.path)
+            let fileSize = (attrs[.size] as? Int64) ?? 0
+            
+            DispatchQueue.main.async {
+                self.activeDownloads[item.id] = DownloadProgressState(
+                    downloadId: item.id,
+                    progress: 1.0,
+                    downloadedBytes: fileSize,
+                    totalBytes: fileSize,
+                    status: .completed,
+                    errorMessage: nil
+                )
+                self.processCompletedDownload(
+                    downloadId: item.id,
+                    destinationURL: destinationURL,
+                    relativePath: relativePath,
+                    fileSize: fileSize
+                )
+            }
+        } catch {
+            updateItemStatus(id: item.id, status: .failed, error: error.localizedDescription)
+        }
+    }
+    
     private func processCompletedDownload(
         downloadId: String,
         destinationURL: URL,
@@ -289,18 +338,8 @@ public final class BackgroundDownloadManager: NSObject, URLSessionDownloadDelega
         fileSize: Int64
     ) {
         guard let container = modelContainer else { return }
-        let context = ModelContext(container)
         
-        let descriptor = FetchDescriptor<DownloadItem>(predicate: #Predicate { $0.id == downloadId })
-        guard let items = try? context.fetch(descriptor), let item = items.first else { return }
-        
-        item.status = .completed
-        item.progress = 1.0
-        item.downloadedBytes = fileSize
-        item.destinationRelativePath = relativePath
-        item.resumeData = nil
-        
-        // Inspect audio metadata with AVAsset
+        // Inspect audio metadata with AVAsset asynchronously
         Task {
             let asset = AVURLAsset(url: destinationURL)
             var duration: TimeInterval = 0
@@ -333,6 +372,16 @@ public final class BackgroundDownloadManager: NSObject, URLSessionDownloadDelega
             }
             
             await MainActor.run {
+                let context = ModelContext(container)
+                let descriptor = FetchDescriptor<DownloadItem>(predicate: #Predicate { $0.id == downloadId })
+                guard let items = try? context.fetch(descriptor), let item = items.first else { return }
+                
+                item.status = .completed
+                item.progress = 1.0
+                item.downloadedBytes = fileSize
+                item.destinationRelativePath = relativePath
+                item.resumeData = nil
+                
                 // Create or update Track
                 let finalTitle = extractedTitle ?? (item.title.isEmpty ? "Unknown Title" : item.title)
                 let finalArtist = extractedArtist ?? (item.artist.isEmpty ? "Unknown Artist" : item.artist)

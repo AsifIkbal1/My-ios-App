@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import UniformTypeIdentifiers
 
 public struct LibraryView: View {
     @State private var libraryVM = LibraryViewModel()
