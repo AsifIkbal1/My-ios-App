@@ -1,0 +1,43 @@
+name: Build MelodyBox iOS App
+
+on:
+  push:
+    branches: [ "**" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build & Package iOS App
+    runs-on: macos-14
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Select Xcode Version
+        run: |
+          sudo xcode-select -s /Applications/Xcode_15.4.app || sudo xcode-select -s /Applications/Xcode.app
+          xcodebuild -version
+
+      - name: Build for iOS Device (IPA)
+        run: |
+          xcodebuild build \
+            -project MelodyBox.xcodeproj \
+            -scheme MelodyBox \
+            -sdk iphoneos \
+            -configuration Release \
+            -derivedDataPath build/device \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO
+
+          mkdir -p Payload
+          cp -r build/device/Build/Products/Release-iphoneos/MelodyBox.app Payload/
+          zip -r "$GITHUB_WORKSPACE/MelodyBox.ipa" Payload
+
+      - name: Upload IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: MelodyBox-IPA
+          path: MelodyBox.ipa
+          retention-days: 7
